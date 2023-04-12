@@ -1,5 +1,10 @@
 #include <stdio.h>
 
 void hello() {
-    printf("Hello, World!\n");
+    printf("Hello, build script!!!!\n");
 }
+
+// void main()
+// {
+//     printf("hello!!!!");
+// }
