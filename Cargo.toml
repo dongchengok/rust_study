@@ -4,4 +4,5 @@ members = [
     "build_external",
     "build_bindgen",
     "c_call_rust",
+    "c_call_cbindgen",
 ]
