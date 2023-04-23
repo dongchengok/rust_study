@@ -1,42 +1,34 @@
-use std::mem::{size_of_val,size_of};
+use std::mem::{size_of_val,size_of,align_of};
 use std::*;
-
-// trait Super {}
-
-// trait Sub: Super {}
-
-// fn upcast(obj: Box<dyn Sub>) -> Box<dyn Super> {
-//     obj
-// }
-
-// trait Super: AsDynSuper {}
-
-// trait AsDynSuper {
-//     fn as_dyn_super<'a>(self: Box<Self>) -> Box<dyn Super + 'a>
-//     where
-//         Self: 'a;
-// }
-
-// impl<T: Super + Sized> AsDynSuper for T {
-//     fn as_dyn_super<'a>(self: Box<Self>) -> Box<dyn Super + 'a>
-//     where
-//         Self: 'a,
-//     {
-//         self
-//     }
-// }
-
-// trait Sub: Super {}
-
-// fn upcast(obj: Box<dyn Sub>) -> Box<dyn Super> {
-//     obj.as_dyn_super()
-// }
 
 fn haha(){
     println!("haha");
 }
 
+struct TestObj {
+    a : i32,
+    b : i32,
+}
+
+trait TestTrait {
+    fn op(&self)->i32;
+}
+
+impl TestTrait for TestObj{
+    fn op(&self)->i32{
+        self.a + self.b
+    }
+}
+
 fn main() {
+    println!("TestObj ref size:{}",size_of::<&TestObj>());
+    println!("TestObj pointer size:{}",size_of::<*const TestObj>());
+    println!("TestTrait ref size:{}",size_of::<&dyn TestTrait>());
+    println!("TestTrait pointer size:{}",size_of::<*const dyn TestTrait>());
+    println!("TestSlice size:{}",size_of::<&[i32]>());
+    println!("func size:{}",size_of::<*const ()>());
+    //println!("TestTrait pointer size:{}",mem::size_of::<*const dyn TestTrait>());
+
     let func = &haha;
     let hehe = &func;
     let a = 1i32;

@@ -4,12 +4,6 @@ struct TestObj {
     b: i32,
 }
 
-#[derive(Debug)]
-struct Test {
-    c: i32,
-    d: i32,
-}
-
 trait OpBase {
     fn op(&self) -> i32;
 }
@@ -27,18 +21,6 @@ impl OpBase for TestObj {
 impl OpMut for TestObj {
     fn op(&self) -> i32 {
         self.a * self.b
-    }
-}
-
-impl OpBase for Test {
-    fn op(&self) -> i32 {
-        self.c + self.d
-    }
-}
-
-impl OpMut for Test {
-    fn op(&self) -> i32 {
-        self.c * self.d * 2
     }
 }
 
