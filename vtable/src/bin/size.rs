@@ -29,7 +29,7 @@ fn main() {
 
     println!("TestObj ref ref size:{}",size_of::<&&TestObj>());
     println!("TestObj pointer ref size:{}",size_of::<&*const TestObj>());
-    println!("TestTrait ref ref size:{}",size_of::<&dyn TestTrait>());
+    println!("TestTrait ref ref size:{}",size_of::<&&dyn TestTrait>());
     println!("TestTrait pointer ref size:{}",size_of::<&*const dyn TestTrait>());
     println!("TestSlice ref size:{}",size_of::<&&[i32]>());
 
